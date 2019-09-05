@@ -12,7 +12,7 @@ class Solution{
     public:
         bool worldBreak(string s,unordered_set<string> dict){
             int len = s.size();
-            bool* dp = new bool[len+1];
+            vector<bool> dp(len+1,false);
             dp[0] = true;
             for(int pos=0;pos<=len;pos++){
                 for(int i=0;dp[pos]&&i<len;i++){
@@ -31,6 +31,21 @@ class Solution{
 int main(){
 	
     cout<<"hello world"<<endl;
+    unordered_set<string> dict;
+    string str;
+    cin>>str;
+    string vocabulary;
+    while(1){
+        cin>>vocabulary;
+        dict.insert(vocabulary);
+        if(cin.get()=='\n'){
+            break;
+        }
+    }
+    Solution T;
 
+    bool result = T.worldBreak(str,dict);
+    cout<<result<<endl;
+    
 
 }
